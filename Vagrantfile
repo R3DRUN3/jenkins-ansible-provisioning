@@ -4,7 +4,7 @@ Vagrant.configure(VAGRANT_API_VERSION) do |config|
   
 
   config.vm.box = "ubuntu/focal64"
-  config.vm.define "jenkins_2"
+  config.vm.define "jenkins"
   config.ssh.insert_key = false
   config.vm.network "private_network", ip: "192.168.56.10"
 
