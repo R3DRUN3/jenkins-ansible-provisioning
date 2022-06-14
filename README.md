@@ -23,7 +23,7 @@ when finished, open a browser to access the Jenkins web UI and follow the instru
 ```console
 firefox 192.168.56.10:8080
 ```
-## Test Jobs and CI/CD pipeline
+## Test Jobs and CI/CD pipelines
 This repo also contain a simple flask web app that you can use to test Jenkins pipelines,
 for example you can set up a Jenkins Build with the Snyk plugin for software vulnerability assessment:
 
