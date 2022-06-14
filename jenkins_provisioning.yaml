@@ -1,0 +1,41 @@
+---
+- hosts: all
+  become: yes
+  remote_user: vagrant
+  tasks:
+
+  - name: INSTALL REQUIRED PACKAGES
+    apt:
+      name:
+        - python3-pip
+        - default-jre
+      update_cache: yes
+
+  - name: IMPORT JENKINS KEY FROM URL
+    ansible.builtin.apt_key:
+      state: present
+      url: https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+
+  - name: ADD JENKINS REPOSITORY TO SOURCE LIST
+    ansible.builtin.apt_repository:
+      repo: deb http://pkg.jenkins.io/debian-stable binary/
+      state: present
+
+  - name: RUN APT UPDATE
+    apt:
+      name: '*'
+      state: latest
+
+  - name: INSTALL JENKINS
+    apt:
+      name: jenkins
+      state: latest
+
+  - name: RELOAD SYSTEMD TO PICK UP CONFIG CHANGES
+    ansible.builtin.systemd:
+      daemon_reload: yes
+
+  - name: START JENKINS
+    ansible.builtin.systemd:
+      name: jenkins
+      state: started
