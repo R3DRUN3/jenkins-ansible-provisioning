@@ -1,4 +1,7 @@
 # Jenkins provisioning with Vagrant and Ansible
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
 Spin up a Jenkins test instance with vagrant and Ansible 👷🔧👷 
 
 ## Abstract
